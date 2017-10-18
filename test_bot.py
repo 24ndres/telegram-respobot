@@ -36,7 +36,6 @@ def main():
     new_offset = None
 
     while True:
-        #greet_bot.get_updates(new_offset)
 
         last_update = greet_bot.get_last_update(offset=new_offset)
 
