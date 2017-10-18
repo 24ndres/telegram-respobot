@@ -42,8 +42,6 @@ def main():
         greet_bot.get_updates(new_offset)
 
         last_update = greet_bot.get_last_update()
-        last_chat_text = ''
-        last_update_id = -1
 
         if last_update:
                 
@@ -52,10 +50,10 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
 
-        if last_chat_text.lower() in commands:
-            greet_bot.send_message(last_chat_id, 'Hello  {}'.format(last_chat_name))
+            if last_chat_text.lower() in commands:
+                greet_bot.send_message(last_chat_id, 'Hello  {}'.format(last_chat_name))
 
-        new_offset = last_update_id + 1
+            new_offset = last_update_id + 1
 
 if __name__ == '__main__':
     try:
