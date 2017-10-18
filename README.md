@@ -1,5 +1,9 @@
 # telegram-respobot
 
+Bot para responder a preguntas  frecuentes de los hermanos de la comunidad 13 de las santas de Barcelona. 
+
+Preparar el entorno
+
 $ pip install virtualenv
 
 $ mkdir project_dir
@@ -10,27 +14,23 @@ $ virtualenv my_env
 
 $ cd my_env
 
+Descargar el código 
+
 $ git clone https://github.com/24ndres/telegram-respobot
 
 $ cd ..
 
+Activar virtualenv
+
 $ source bin/activate
-
-$ pip install requests
-
-$ pip freeze > requirements.txt
-
-$ echo "web: python my_bot.py" > Procfile
-
-$ touch __init__.py
 
 $ git init
 
+Necesario para hacer deploy en heroku
+
 $ git add .
 
-$ git commit -m ‘short message that describe changes to commit’
-
-$ git clone https://github.com/24ndres/telegram-respobot
+$ git commit -m 'Mensaje del commit'
 
 $ heroku login
 
@@ -38,6 +38,6 @@ $ heroku create
 
 $ git push heroku master
 
-$ heroku ps:scale web=1
+$ heroku ps:scale bot=1
 
-$ heroku open
+$ heroku logs --tail
