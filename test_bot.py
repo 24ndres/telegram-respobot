@@ -49,9 +49,9 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
 
-            if any(words in euca for words in last_chat_text.lower()):
-                msg = 'Hola '+last_chat_name+', la siguiente eucaristía es el sábado a las 21:00 en la Iglesia.'
-                greet_bot.send_message(last_chat_id, msg)
+            #if any(words in euca for words in last_chat_text.lower()):
+            msg = 'Hola '+last_chat_name+', la siguiente eucaristía es el sábado a las 21:00 en la Iglesia.'
+            greet_bot.send_message(last_chat_id, msg)
 
             new_offset = last_update_id + 1
 
