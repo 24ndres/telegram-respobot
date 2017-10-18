@@ -20,8 +20,8 @@ class BotHandler:
         resp = requests.post(self.api_url + method, params)
         return resp
 
-    def get_last_update(self):
-        get_result = self.get_updates()
+    def get_last_update(self, offset):
+        get_result = self.get_updates(offset)
         
         if len(get_result) > 0:
             last_update = get_result[-1]
@@ -39,9 +39,9 @@ def main():
     new_offset = None
 
     while True:
-        greet_bot.get_updates(new_offset)
+        #greet_bot.get_updates(new_offset)
 
-        last_update = greet_bot.get_last_update()
+        last_update = greet_bot.get_last_update(offset=new_offset)
 
         if last_update:
                 
