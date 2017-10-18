@@ -32,7 +32,12 @@ class BotHandler:
         return last_update
 
 greet_bot = BotHandler('466425736:AAHFy55FZHxJ4pbPYEpOEF9gc5DdaLCqmCU')
-commands = {'euca': euca,'eucaristia':euca, 'eucaristía':euca, 'palabra', 'convi', 'convivencia', 'avisos', 'grupos', 'temas', 'tema', 'lista', 'admin'}
+commands = {'euca': euca,'eucaristia':euca, 'eucaristía':euca}
+#'palabra', 'convi', 'convivencia', 'avisos', 'grupos', 'temas', 'tema', 'lista', 'admin'
+
+def euca(chat_id, chat_name):
+    msg = 'Hola '+chat_name+', la siguiente eucaristía es el sábado a las 21:00 en la Iglesia.'
+    greet_bot.send_message(chat_id, msg)
 
 
 def main():
@@ -50,9 +55,10 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
 
-            if any(word in last_chat_text.lower() for word in commands):
-            if last_chat_text.lower() in commands:
-                greet_bot.send_message(last_chat_id, 'Hello  {}'.format(last_chat_name))
+            for word in last_chat_text.lower():
+                if word in commands:
+                    commands[word](last_chat_id, last_chat_name)
+                break
 
             new_offset = last_update_id + 1
 
