@@ -48,9 +48,23 @@ def main():
             last_chat_name = last_update['message']['chat']['first_name']
 
             if last_chat_text.lower() == '/euca':
-                msg = 'Hola '+last_chat_name+', la siguiente eucaristía es el sábado a las 21:00 en la Iglesia.'
+                msg = 'La siguiente eucaristía es el sábado a las 21:00 en la Iglesia.'
+            elif last_chat_text.lower() == '/palabra':
+                msg = 'La siguiente celebración de la palabra es el martes en la sala Virgen de Montserrat a las 21:00.'
+            elif last_chat_text.lower() == '/convi':
+                msg = 'La siguiente convivencia será la de inicio en Can Fisa del 24.11 por la mañana al 26.11 por la tarde.'
+            elif last_chat_text.lower() == '/avisos':
+                msg = 'El grupo que prepara el siguiente tema debería haber empezado ya.'
+            elif last_chat_text.lower() == '/grupos':
+                msg = 'Grupo 1: Isabel Ochoteco, Elena Borrell, Pablo Martín, Luís, Diego Pérez. \nGrupo 2: Maria Sellas, Sofia Z, Dimas, Alejandro M, Maria Gonzalez. \nGrupo 3: Manuel Infiesta, Raquel S, Rocio, Joaquim, Alegria.\nGrupo 4: Elías M, Tomás, Andrés M, Sara, Pati A.\nGrupo 5: Alvaro C, Isabel Torres, Andrés Z, Javier, Blanca A.\nGrupo 6: Ana Manén, Paloma, David Aznar, Jose, Maria Ferreres, Vicky.\nGrupo 7: Maria Villaro, Moisés, Ramón Mª, Emma, Marta, Ana Navarro, David Prat.\nGrupo 8: Alvaro Roca, Míriam, Borja, Blanca Moina, Mateo, Clara Campillo.\nGrupo 9: Marcos, Teresa, Guillem Prat, Cristina Laucirica, Lucia Prat.'
+            elif last_chat_text.lower() == '/temas':
+                msg = 'Camino por el desierto: Mateo Manén, Elías Marín, Blanca Adell, Sofía Zaragoza, Tomás Pérez.\nConquista de la tierra prometida: Maria Ferreres, Joaquin Sellas, Patricia Adell, Lucia Prat, Pablo Martín.\nDavid y el reino: Paloma García, Isabel Torres, Borja Laucirica, Blanca Moina, Marta Benavides.\nExilio: Javier Infiesta, Dimas Valdés, Luís Ochoteco, María González, Cristina Laucirica.\nProfetas: Ana Manén, Manuel Infiesta, Emma Valdés, Clara Campillo, Alvaro Cendoya.\nLos orígenes (la creación, el mal y el pecado): Vicky Hunter, Maria Villaró, Alegria Barba, David Aznar, Jose Berman.\nEl Mesías: Moisés Corbacho, Raquel Serrat, David Prat, Lucia Prat, Maria Sellas.'
+            elif last_chat_text.lower() == '/lista':
+                msg = 'Disculpa, está opción aun no está disponible.'
+            elif last_chat_text.lower() == '/sobreti':
+                msg = 'Hola '+last_chat_name+', soy un Bot de telegram. Solo puedo responer a comandos programados. Mi desarrollador es: @andres_marin, puedes ver más sobre el en https://www.linkedin.com/in/andresmarinabad/'
             else:
-                msg = 'Hola '+last_chat_name+', no me has dado la instrucción correcta.'
+                msg = 'Disculpa, no me has dado la instrucción correcta.'
 
             greet_bot.send_message(last_chat_id, msg)
 
