@@ -32,7 +32,7 @@ class BotHandler:
         return last_update
 
 greet_bot = BotHandler('466425736:AAHFy55FZHxJ4pbPYEpOEF9gc5DdaLCqmCU')
-commands = ('hello')
+commands = {'euca': euca,'eucaristia':euca, 'eucaristía':euca, 'palabra', 'convi', 'convivencia', 'avisos', 'grupos', 'temas', 'tema', 'lista', 'admin'}
 
 
 def main():
@@ -50,6 +50,7 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
 
+            if any(word in last_chat_text.lower() for word in commands):
             if last_chat_text.lower() in commands:
                 greet_bot.send_message(last_chat_id, 'Hello  {}'.format(last_chat_name))
 
